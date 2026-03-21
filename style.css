@@ -23,6 +23,73 @@
     align-items: center;
     padding: 15px 0;
 }
+.header-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 60px; 
+}
+
+.header-nav a {
+    color: #000000;            
+    font-size: 16px;    
+    font-style: italic;     
+    text-decoration: underline; 
+    transition: color 0.3s;   
+    display: inline-block;
+    transition: all 0.3 ease;
+}
+
+/* Эффект при наведении */
+.header-nav a:hover {
+    color: #3d2f75;             
+    text-shadow: none;
+    transform: translate(1.5px, 1.5px);
+}
+
+.phone-link{
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.phone-link:hover{
+    text-decoration: underline;
+    color: #251e47;
+    transform: scale(1.05);
+}
+
+.header-btn {
+    background-color: #3d2f75; 
+    color: #ffffff;
+    padding: 12px 25px;         /* Отступы внутри кнопки (сверху/снизу, слева/справа) */
+    cursor: pointer; 
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 2px solid #30255b;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5);
+    background-image: radial-gradient(circle at center, #49398a 0%, #3d2f75 95%, #221a3d);
+
+    font-family: 'Montserrat', Helvetica, Arial, sans-serif; 
+    font-weight: 600; 
+    font-size: 16px;  
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    border-radius: 25px;  
+}    
+
+.header-btn:hover {
+    background-color: #5744a3; 
+    background-image: radial-gradient(circle at center, #5e4ab0 0%, #453584 95%, #34275d);
+    transform: scale(1.02); 
+    
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5); 
+}
+
+
 body {
     font-family: 'Inter', sans-serif;
     color: #333;
