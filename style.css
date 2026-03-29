@@ -27,7 +27,7 @@ body {
     background: #fff;
     padding: 0;
     width: 100%;
-    --logo-col: 160px;
+    --logo-col: 180px;
     position: relative;
 }
 
@@ -107,7 +107,7 @@ body {
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 50px;
+    gap: 40px;
 }
 
 .header-nav .nav-link {
@@ -144,15 +144,23 @@ body {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+.accLike{
+    display: flex;
+    gap: 0px;
+}
+
 .action-icon svg {
     width: 20px;
     height: 20px;
-    fill: currentColor;
+    color: #573f3f;
+}
+
+.action-icon svg:hover{
+    color: #8f7878;
 }
 
 .action-icon:hover {
     background-color: #f1eff8;
-    color: #2f245c;
 }
 
 .callback-box {
@@ -182,8 +190,8 @@ body {
 
 /* hover = просто тускнеет */
 .cart-btn-real:hover {
-    opacity: 0.6;
-    background: #aba0a0;
+    opacity: 0.9;
+    background: #c1bbbb;
     border-color: none;
 }
 
