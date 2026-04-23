@@ -6,6 +6,10 @@
     <title>OCHATEKС — Текстильное производство</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+
 </head>
 <body>
 
@@ -28,7 +32,7 @@
                             <li><a href="#" class="nav-link">ПРОИЗВОДСТВО</a></li>
                             <li><a href="catalog.html" class="nav-link">КАТАЛОГ</a></li>
                             <li><a href="#" class="nav-link">ДОСТАВКА</a></li>
-                            <li><a href="#" class="nav-link">КОНТАКТЫ</a></li>
+                            <li><a href="#contacts" class="nav-link">КОНТАКТЫ</a> </li>
                         </ul>
                     </nav>
                 </div>
@@ -72,39 +76,92 @@
 
     <div class="container">
         <div class="hero-wrapper">
-            <section class="hero">
-                <div class="container hero-content">
-                    <!-- Левая колонка: текст -->
-                    <div class="hero-text">
-                        <h1>Производство <br>нетканного полотна</h1>
-                        <p class="hero-subtitle">
-                            Надежный поставщик текстильной продукции для бизнеса по всей России.
-                            Собственное производство, контроль качества и индивидуальные решения.
-                        </p>
-                        <ul class="features-list">
-                            <li>15 лет на рынке текстиля</li>
-                            <li>Более 500 постоянных клиентов</li>
-                            <li>Собственные цеха и оборудование</li>
-                        </ul>
-                        <button class="catalog_btn">Смотреть каталог</button>
-                    </div>
+            <div class="left-column">
+                <section class="hero">
+                    <div class="container hero-content">
+                        <!-- Левая колонка: текст -->
+                        <div class="hero-text">
+                            <h1>Производство <br>нетканного полотна</h1>
+                            <p class="hero-subtitle">
+                                Надежный поставщик текстильной продукции для бизнеса по всей России.
+                                Собственное производство, контроль качества и индивидуальные решения.
+                            </p>
+                            <ul class="features-list">
+                                <li>15 лет на рынке текстиля</li>
+                                <li>Более 500 постоянных клиентов</li>
+                                <li>Собственные цеха и оборудование</li>
+                            </ul>
+                            <button class="catalog_btn"><a href="catalog.html" class="nav-link">Смотреть каталог</a></button>
+                        </div>
 
-                    <div class="hero-cards">
-                        <div class="card">
-                            <p>Качественная продукция и контроль производства</p>
+                        <div class="hero-cards">
+                            <div class="card">
+                                <p>Качественная продукция и контроль производства</p>
+                            </div>
+                            <div class="card">
+                                <p>Более 1000 наименований в каталоге</p>
+                            </div>
+                            <div class="card">
+                                <p>Индивидуальный пошив под ваш бренд</p>
+                            </div>
+                            <div class="card">
+                                <p>Собственная логистика амроаимароимво</p>
+                            </div>
                         </div>
-                        <div class="card">
-                            <p>Более 1000 наименований в каталоге</p>
-                        </div>
-                        <div class="card">
-                            <p>Индивидуальный пошив под ваш бренд</p>
-                        </div>
-                        <div class="card">
-                            <p>Собственная логистика амроаимароимво</p>
+                    </div>
+                </section>
+                
+                <div class="advantages">
+                    <div class="advantages-wrapper">
+                        <div class="advantages-grid">
+                            <div class="adv-card adv-card-stat">
+                                <div class="adv-meta">
+                                    <span class="adv-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"></circle>
+                                            <path d="M12 7.8V12L15.2 13.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="adv-kicker">Опыт</span>
+                                </div>
+                                <h4><span class="adv-number">15</span> лет на рынке</h4>
+                                <p>Отлаженное производство и стабильные поставки по всей России.</p>
+                            </div>
+                            <div class="divider vertical"></div>
+                            <div class="adv-card adv-card-stat">
+                                <div class="adv-meta">
+                                    <span class="adv-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <circle cx="8.3" cy="9" r="2.8" stroke="currentColor" stroke-width="1.8"></circle>
+                                            <circle cx="15.7" cy="9" r="2.8" stroke="currentColor" stroke-width="1.8"></circle>
+                                            <path d="M3.5 17.2C3.9 14.9 5.8 13.4 8.3 13.4C10.8 13.4 12.7 14.9 13.1 17.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                                            <path d="M10.9 17.2C11.3 14.9 13.2 13.4 15.7 13.4C18.2 13.4 20.1 14.9 20.5 17.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="adv-kicker">Доверие</span>
+                                </div>
+                                <h4><span class="adv-number">500+</span> клиентов</h4>
+                                <p>Нам доверяют оптовые покупатели и корпоративные заказчики.</p>
+                            </div>
+                            <div class="divider vertical"></div>
+                            <div class="adv-card adv-card-stat">
+                                <div class="adv-meta">
+                                    <span class="adv-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <path d="M4.5 8.5L12 4.5L19.5 8.5V15.5L12 19.5L4.5 15.5V8.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+                                            <path d="M4.5 8.5L12 12.5L19.5 8.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+                                            <path d="M12 12.5V19.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="adv-kicker">Логистика</span>
+                                </div>
+                                <h4><span class="adv-number">Собственная</span> логистика </h4>
+                                <p>Большой ассортимент с регулярным пополнением каталога.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
             <aside class="hero-ad">
                 <div class="ad-header">
@@ -146,11 +203,146 @@
             <h2>О компании</h2>
             <div class="about-block">
                 <p>
-                    Компания OCHATEKC является ведущим производителем высококачественного текстиля. Мы используем только натуральные материалы и современное оборудование, что позволяет нам гарантировать долговечность и эстетичность каждого изделия. Наша миссия — создавать комфорт и уют для вашего бизнеса и дома.
+                    Компания OCHATEKC является ведущим производителем высококачественного текстиля. Мы используем только натуральные материалы и современное оборудование, что позволяет нам гарантировать долговечность и эстетичность каждого изделия. Наша миссия — создавать комфорт и уют для вашего бизнеса и дома.Десять хет-триков за сезон — повторение шестого результата для российских игроков. Рекорд XXI века был установлен два года назад, когда восемь россиян настреляли 12 хет-триков, причем Кирилл Капризов и Артемий Панарин выдали по три мощных матча. Лучшее историческое достижение относится к сезону-1992/93, когда семь из 16 «трюков со шляпой» соорудил Александр Могильный.
                 </p>
             </div>
         </div>
     </section>
+
+    <footer class="footer">
+        <div class="footer-wrapper">
+
+            <div class="footer-col">
+                <h3>Компания</h3>
+                <p>Наши преимущества</p>
+                <p>О нас</p>
+                <p>Каталог</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Контакты</h3>
+                <p>+7 915 815 55 70</p>
+                <p>email@mail.com</p>
+                <p>г. Кинешма</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Информация</h3>
+                <p>Доставка</p>
+                <p>Оплата</p>
+                <p>Политика конфиденциальности</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2001-2026 Все права защищены
+        </div>
+    </footer>
+    <div id="callModal" class="call-modal">
+ 
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close"></span>
+            <h2 class="maintext">Контакты "ТексЭко"</h2>
+
+            <div class="contact-info">
+                <h3 class="maintext2">Информация о нас</h3>
+                <p><strong>Адрес:</strong> г. Кинешма, ул. Вичугская, д. 13Г</p>
+                <p><strong>Телефон:</strong> +7 (915) 815-55-70</p>
+                <p><strong>Email:</strong> info@texeco.ru</p>
+                <p><strong>Режим работы:</strong> Пн-Пт: 8:00–20:00</p>
+            </div>
+
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">ФИО <span class="star">*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон <span class="star">*</span></label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email <span class="star">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Обращение <span class="star">*</span></label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Отправить обращение</button>
+                <input type="hidden" name="date" id="timeField">
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+        emailjs.init("kMTI-4cVtNnYU4FBQ");
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            const now = new Date();
+            document.getElementById('timeField').value = now.toLocaleString('ru-RU');
+        
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const form = document.getElementById('contactForm');
+            
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    emailjs.sendForm(
+                        'service_grwiu66',
+                        'template_amsvbdq',
+                        this
+                    ).then(function(response) {
+                        alert('Сообщение успешно отправлено!');
+                        modal.style.display = 'none';
+                        form.reset();
+                    }, function(error) {
+                        console.error('Ошибка:', error);
+                        alert('Ошибка отправки: ' + error.text);
+                    });
+                });
+            }
+            
+            const modal = document.getElementById('contactModal');
+            const contactLink = document.querySelector('a[href="#contacts"]');
+            const closeBtn = document.querySelector('.close');
+            
+            if (contactLink) {
+                contactLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.style.display = 'block';
+                });
+            }
+            
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+            }
+            
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+        });
+
+        
+    </script>
+
+
+
 
 </body>
 </html>
