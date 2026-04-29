@@ -341,6 +341,32 @@
         
     </script>
 
+    <!-- Модальное окно входа -->
+    <div id="loginModal" class="login-modal">
+        <div class="login-modal-content">
+            <span class="login-close">&times;</span>
+            
+            <div id="loginForm" class="login-auth-form active">
+                <h3>Вход в аккаунт</h3>
+                <input type="email" id="loginEmail" placeholder="Email" class="login-auth-input">
+                <input type="password" id="loginPassword" placeholder="Пароль" class="login-auth-input">
+                <button id="doLogin" class="login-auth-btn">Войти</button>
+                <p class="login-auth-switch">Нет аккаунта? <a href="#" id="showSignup">Зарегистрироваться</a></p>
+            </div>
+            
+            <div id="signupForm" class="login-auth-form">
+                <h3>Регистрация</h3>
+                <input type="text" id="signupName" placeholder="Имя" class="login-auth-input">
+                <input type="email" id="signupEmail" placeholder="Email" class="login-auth-input">
+                <input type="password" id="signupPassword" placeholder="Пароль" class="login-auth-input">
+                <button id="doSignup" class="login-auth-btn">Зарегистрироваться</button>
+                <p class="login-auth-switch">Уже есть аккаунт? <a href="#" id="showLogin">Войти</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
 
 
 

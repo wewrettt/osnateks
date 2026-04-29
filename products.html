@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог - OCHATEKС</title>
+    <title>Товар - OCHATEKС</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
+
     <header class="header">
         <div class="container">
             <div class="header-topline">
@@ -26,7 +26,7 @@
                         <ul>
                             <li><a href="index.html#about" class="nav-link">О НАС</a></li>
                             <li><a href="#" class="nav-link">ПРОИЗВОДСТВО</a></li>
-                            <li><a href="catalog.html" class="nav-link active">КАТАЛОГ</a></li>
+                            <li><a href="catalog.html" class="nav-link">КАТАЛОГ</a></li>
                             <li><a href="#" class="nav-link">ДОСТАВКА</a></li>
                             <li><a href="index.html#contacts" class="nav-link">КОНТАКТЫ</a></li>
                         </ul>
@@ -68,15 +68,13 @@
         </div>
     </header>
 
-    <!-- Секция каталога - товары подтянутся автоматически -->
-    <section class="catalog-section">
+    <main>
         <div class="container">
-            <h2 class="section-title">Ветошь</h2>
-            <div id="products-grid" class="cards-grid">
-                <div class="loading">Загрузка товаров...</div>
+            <div id="product-detail" class="product-detail">
+                <div class="loading">Загрузка товара...</div>
             </div>
         </div>
-    </section>
+    </main>
 
     <footer class="footer-cat">
         <div class="footer-wrapper-cat">
@@ -126,152 +124,163 @@
         </div>
     </div>
 
-    <!-- Модальное окно контактов -->
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <span class="close"></span>
-            <h2 class="maintext">Контакты</h2>
-            <div class="contact-info">
-                <h3>Информация о нас</h3>
-                <p><strong>Адрес:</strong> г. Кинешма, ул. Вичугская, д. 13Г</p>
-                <p><strong>Телефон:</strong> +7 (915) 815-55-70</p>
-                <p><strong>Email:</strong> info@texeco.ru</p>
-                <p><strong>Режим работы:</strong> Пн-Пт: 8:00–20:00</p>
-            </div>
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="name">ФИО <span class="star">*</span></label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Телефон <span class="star">*</span></label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email <span class="star">*</span></label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Обращение <span class="star">*</span></label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit">Отправить обращение</button>
-                <input type="hidden" name="date" id="timeField">
-            </form>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="products.js"></script>
     <script src="script.js"></script>
-    
     <script>
-        // Функция для отображения всех товаров из products.js
-        function renderCatalog() {
-            const grid = document.getElementById('products-grid');
-            if (!grid) return;
+        function loadProduct() {
+            // Получаем ID товара из URL (например ?id=1)
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
             
-            const products = window.products || [];
-            
-            if (products.length === 0) {
-                grid.innerHTML = '<p>Товары не найдены</p>';
+            if (!productId) {
+                document.getElementById('product-detail').innerHTML = '<p>Товар не найден</p><a href="catalog.html">Вернуться в каталог</a>';
                 return;
             }
             
-            let html = '';
+            // Получаем товар из базы данных
+            const product = window.getProductById ? window.getProductById(productId) : null;
             
-            products.forEach(product => {
-                // Формируем список цен (первые 4 позиции)
-                let pricesHtml = '';
-                const priceEntries = Object.entries(product.prices);
-                for (let i = 0; i < Math.min(priceEntries.length, 4); i++) {
-                    const [weight, price] = priceEntries[i];
-                    pricesHtml += `<li>от ${weight} — ${price} ₽</li>`;
-                }
-                
-                // Базовая цена (минимальная)
-                const basePrice = Math.min(...Object.values(product.prices));
-                
-                html += `
-                    <div class="card-c" data-product-id="${product.id}">
-                        <a href="product.html?id=${product.id}" class="card-link">
-                            <img src="${product.image}" alt="${product.name}">
-                            <h3>${product.name}</h3>
-                            <p>размер ${product.size}<br>${product.material}</p>
-                            <ul class="prices">
+            if (!product) {
+                document.getElementById('product-detail').innerHTML = '<p>Товар не найден</p><a href="catalog.html">Вернуться в каталог</a>';
+                return;
+            }
+            
+            // Формируем список цен
+            let pricesHtml = '';
+            for (const [weight, price] of Object.entries(product.prices)) {
+                pricesHtml += `<li>от ${weight} — ${price} ₽</li>`;
+            }
+            
+            // Базовая цена для кнопки "В корзину"
+            const basePrice = Math.min(...Object.values(product.prices));
+            
+            const html = `
+                <div class="product-detail-wrapper">
+                    <div class="product-images">
+                        <img src="${product.image}" alt="${product.name}" class="product-main-image">
+                    </div>
+                    <div class="product-info">
+                        <h1>${product.name}</h1>
+                        <div class="product-specs">
+                            <p><strong>Размер:</strong> ${product.size}</p>
+                            <p><strong>Материал:</strong> ${product.material}</p>
+                            <p><strong>Наличие:</strong> ${product.inStock ? 'В наличии' : 'Нет в наличии'}</p>
+                        </div>
+                        <div class="product-prices">
+                            <h3>Цены:</h3>
+                            <ul class="price-list">
                                 ${pricesHtml}
                             </ul>
-                        </a>
+                        </div>
+                        <div class="product-description">
+                            <h3>Описание:</h3>
+                            <p>${product.description}</p>
+                        </div>
                         <button class="add-to-cart-btn" data-id="${product.id}" data-name="${product.name}" data-price="${basePrice}">
-                            В корзину
+                            Добавить в корзину
                         </button>
-                        <div class="button-wrapper">
-                            <a href="price-list.html" class="price-button">прайс-лист</a>
-                        </div>
-                        <div class="status ${product.inStock ? 'in-stock' : 'out-stock'}">
-                            ${product.inStock ? '✔ В наличии' : '✘ Нет в наличии'}
-                        </div>
+                        <a href="catalog.html" class="back-link">← Назад в каталог</a>
                     </div>
-                `;
-            });
+                </div>
+            `;
             
-            grid.innerHTML = html;
+            document.getElementById('product-detail').innerHTML = html;
+            
+            // Привязываем событие для кнопки "В корзину"
+            const cartBtn = document.querySelector('.add-to-cart-btn');
+            if (cartBtn) {
+                cartBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const id = this.dataset.id;
+                    const name = this.dataset.name;
+                    const price = parseInt(this.dataset.price);
+                    
+                    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                    const existingItem = cart.find(item => item.id === id);
+                    
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({ id, name, price, quantity: 1 });
+                    }
+                    
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    
+                    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                    const cartCount = document.querySelector('.cart-count');
+                    if (cartCount) cartCount.textContent = totalItems;
+                    
+                    alert(`${name} добавлен в корзину`);
+                });
+            }
+            
+            // Обновляем заголовок страницы
+            document.title = `${product.name} - OCHATEKС`;
         }
         
-        // Запускаем отображение каталога
-        document.addEventListener('DOMContentLoaded', function() {
-            renderCatalog();
-            
-            // Настройка EmailJS для контактов
-            emailjs.init("kMTI-4cVtNnYU4FBQ");
-            
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(event) {
-                    const now = new Date();
-                    document.getElementById('timeField').value = now.toLocaleString('ru-RU');
-                    
-                    event.preventDefault();
-                    emailjs.sendForm(
-                        'service_grwiu66',
-                        'template_amsvbdq',
-                        this
-                    ).then(function(response) {
-                        alert('Сообщение успешно отправлено!');
-                        const modal = document.getElementById('contactModal');
-                        if (modal) modal.style.display = 'none';
-                        contactForm.reset();
-                    }, function(error) {
-                        console.error('Ошибка:', error);
-                        alert('Ошибка отправки: ' + error.text);
-                    });
-                });
-            }
-            
-            // Модальное окно контактов
-            const contactModal = document.getElementById('contactModal');
-            const contactLink = document.querySelector('a[href="#contacts"]');
-            const closeBtn = document.querySelector('.close');
-            
-            if (contactLink) {
-                contactLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    if (contactModal) contactModal.style.display = 'block';
-                });
-            }
-            
-            if (closeBtn) {
-                closeBtn.addEventListener('click', function() {
-                    if (contactModal) contactModal.style.display = 'none';
-                });
-            }
-            
-            window.addEventListener('click', function(e) {
-                if (e.target === contactModal) {
-                    contactModal.style.display = 'none';
-                }
-            });
-        });
+        document.addEventListener('DOMContentLoaded', loadProduct);
     </script>
+
+    <style>
+        .product-detail-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        
+        .product-main-image {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .product-info h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .product-specs {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .product-prices ul, .price-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .product-prices li, .price-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .product-description {
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #e67e22;
+            text-decoration: none;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 18px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .product-detail-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
 </body>
 </html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина - OCHATEKС</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-topline">
+                <span class="topline-delivery">Бесплатная доставка от 20000 рублей ᯓ➤</span>
+                <a href="tel:+79158155570" class="topline-phone">+7 (915)-815-55-70 (ежедневно с 8:00 - 20:00 по МСК)</a>
+            </div>
+
+            <div class="header-main">
+                <a href="index.html" class="logo-link">
+                    <img src="logo.jpg" alt="ПКФ Оснатекс логотип" class="logo-img">
+                </a>
+
+                <div class="header-center">
+                    <nav class="header-nav">
+                        <ul>
+                            <li><a href="index.html#about" class="nav-link">О НАС</a></li>
+                            <li><a href="#" class="nav-link">ПРОИЗВОДСТВО</a></li>
+                            <li><a href="catalog.html" class="nav-link">КАТАЛОГ</a></li>
+                            <li><a href="#" class="nav-link">ДОСТАВКА</a></li>
+                            <li><a href="index.html#contacts" class="nav-link">КОНТАКТЫ</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="header-actions">
+                    <div class="accLike">
+                        <a href="#" class="action-icon user-link" aria-label="Войти">
+                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none">
+                                <circle cx="11.2737" cy="7.79412" r="5.29412" stroke="currentColor" stroke-width="2"/>
+                                <path d="M18.6845 20.5006C18.6845 16.4072 15.3661 13.0889 11.2727 13.0889C7.17932 13.0889 3.86096 16.4072 3.86096 20.5006" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="action-icon cart-link" aria-label="Лайк">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M7 3C4.23858 3 2 5.21619 2 7.95C2 10.157 2.87466 15.3947 11.4875 20.6903C11.7994 20.8821 12.2006 20.8821 12.5125 20.6903C21.1253 15.3947 22 10.157 22 7.95C22 5.21619 19.7614 3 17 3C14.2386 3 12 6 12 6C12 6 9.76142 3 7 3Z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="cartt">
+                        <a href="cart.html" class="cart-btn-real"> 
+                            <span class="cart-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M2.5 4.25C2.5 3.83579 2.83579 3.5 3.25 3.5H3.80826C4.75873 3.5 5.32782 4.13899 5.65325 4.73299C5.87016 5.12894 6.02708 5.58818 6.14982 6.00395C6.18306 6.00134 6.21674 6 6.2508 6H18.7481C19.5783 6 20.1778 6.79442 19.9502 7.5928L18.1224 14.0019C17.7856 15.1832 16.7062 15.9978 15.4779 15.9978H9.52977C8.29128 15.9978 7.2056 15.1699 6.87783 13.9756L6.11734 11.2045L4.85874 6.95578L4.8567 6.94834C4.701 6.38051 4.55487 5.85005 4.33773 5.4537C4.12686 5.0688 3.95877 5 3.80826 5H3.25C2.83579 5 2.5 4.66421 2.5 4.25Z" fill="#212121"/>
+                                    <path d="M11 19C11 20.1046 10.1046 21 9 21C7.89543 21 7 20.1046 7 19C7 17.8954 7.89543 17 9 17C10.1046 17 11 17.8954 11 19Z" fill="#212121"/>
+                                    <path d="M18 19C18 20.1046 17.1046 21 16 21C14.8954 21 14 20.1046 14 19C14 17.8954 14.8954 17 16 17C17.1046 17 18 17.8954 18 19Z" fill="#212121"/>
+                                </svg>
+                                <span class="cart-count">0</span>
+                            </span>
+                            <span class="cart-text">Корзина</span>
+                        </a>
+                    </div>
+                    <div class="callback-box">
+                        <button class="header-btn">ЗАКАЗАТЬ ЗВОНОК</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 style="margin: 40px 0 20px;">Корзина</h1>
+            <div id="cart-items"></div>
+            <div id="cart-total" style="margin: 20px 0;"></div>
+            <div style="display: flex; gap: 15px; margin-bottom: 50px;">
+                <button id="clearCart" class="clear-cart-btn">Очистить корзину</button>
+                <button id="checkout" class="checkout-btn">Оформить заказ</button>
+            </div>
+            <a href="catalog.html" class="back-link" style="display: inline-block; margin-bottom: 50px;">← Продолжить покупки</a>
+        </div>
+    </main>
+
+    <footer class="footer-cat">
+        <div class="footer-wrapper-cat">
+            <div class="footer-col">
+                <h3>Компания</h3>
+                <p>Наши преимущества</p>
+                <p>О нас</p>
+                <p>Каталог</p>
+            </div>
+            <div class="footer-col">
+                <h3>Контакты</h3>
+                <p>+7 915 815 55 70</p>
+                <p>email@mail.com</p>
+                <p>г. Кинешма</p>
+            </div>
+            <div class="footer-col">
+                <h3>Информация</h3>
+                <p>Доставка</p>
+                <p>Оплата</p>
+                <p>Политика конфиденциальности</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2001-2026 Все права защищены
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const container = document.getElementById('cart-items');
+            const totalContainer = document.getElementById('cart-total');
+            
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="padding: 20px; background: #f9f9f9; border-radius: 8px;">Корзина пуста</p>';
+                totalContainer.innerHTML = '';
+                return;
+            }
+            
+            let total = 0;
+            let html = '<div class="cart-list">';
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                html += `
+                    <div class="cart-item" data-index="${index}">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <p>${item.price} ₽ × ${item.quantity} = ${itemTotal} ₽</p>
+                        </div>
+                        <div class="cart-item-actions">
+                            <button class="cart-inc" data-id="${item.id}">+</button>
+                            <button class="cart-dec" data-id="${item.id}">-</button>
+                            <button class="cart-remove" data-id="${item.id}">Удалить</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            container.innerHTML = html;
+            totalContainer.innerHTML = `<h3>Итого: ${total} ₽</h3>`;
+            
+            document.querySelectorAll('.cart-inc').forEach(btn => {
+                btn.addEventListener('click', () => updateQuantity(btn.dataset.id, 1));
+            });
+            document.querySelectorAll('.cart-dec').forEach(btn => {
+                btn.addEventListener('click', () => updateQuantity(btn.dataset.id, -1));
+            });
+            document.querySelectorAll('.cart-remove').forEach(btn => {
+                btn.addEventListener('click', () => removeFromCart(btn.dataset.id));
+            });
+        }
+        
+        function updateQuantity(id, delta) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.quantity += delta;
+                if (item.quantity <= 0) {
+                    cart = cart.filter(i => i.id !== id);
+                }
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+            updateCartCount();
+        }
+        
+        function removeFromCart(id) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cart = cart.filter(i => i.id !== id);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+            updateCartCount();
+        }
+        
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartCount = document.querySelector('.cart-count');
+            if (cartCount) cartCount.textContent = totalItems;
+        }
+        
+        document.getElementById('clearCart')?.addEventListener('click', () => {
+            localStorage.removeItem('cart');
+            loadCart();
+            updateCartCount();
+        });
+        
+        document.getElementById('checkout')?.addEventListener('click', () => {
+            const user = localStorage.getItem('currentUser');
+            if (user) {
+                alert('Заказ оформлен! Спасибо за покупку!');
+                localStorage.removeItem('cart');
+                loadCart();
+                updateCartCount();
+            } else {
+                alert('Пожалуйста, войдите в профиль для оформления заказа');
+                document.getElementById('loginModal').style.display = 'flex';
+            }
+        });
+        
+        loadCart();
+    </script>
+
+    <style>
+        .cart-list { display: flex; flex-direction: column; gap: 15px; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: white; }
+        .cart-item-actions { display: flex; gap: 10px; }
+        .cart-inc, .cart-dec, .cart-remove { padding: 5px 12px; border: none; border-radius: 5px; cursor: pointer; }
+        .cart-inc { background: #2ecc71; color: white; }
+        .cart-dec { background: #e67e22; color: white; }
+        .cart-remove { background: #e74c3c; color: white; }
+        .clear-cart-btn { background: #e74c3c; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; }
+        .checkout-btn { background: #e67e22; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; }
+        .back-link { color: #e67e22; text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+    <script src="script.js"></script>
+</body>
+</html>
