@@ -68,15 +68,21 @@
         </div>
     </header>
 
-    <!-- Секция каталога - товары подтянутся автоматически -->
-    <section class="catalog-section">
-        <div class="container">
-            <h2 class="section-title">Ветошь</h2>
-            <div id="products-grid" class="cards-grid">
-                <div class="loading">Загрузка товаров...</div>
+    
+    <div class="container">
+        <main class="catalog-layout">
+
+            <!-- Левое меню -->
+            <aside class="catalog-sidebar">
+                <ul id="category-menu"></ul>
+            </aside>
+
+            <!-- Контент -->
+            <div class="catalog-content" id="catalog-content">
             </div>
-        </div>
-    </section>
+
+        </main>
+    </div>
 
     <footer class="footer-cat">
         <div class="footer-wrapper-cat">
@@ -168,54 +174,120 @@
     <script>
         // Функция для отображения всех товаров из products.js
         function renderCatalog() {
-            const grid = document.getElementById('products-grid');
-            if (!grid) return;
-            
+
             const products = window.products || [];
-            
-            if (products.length === 0) {
-                grid.innerHTML = '<p>Товары не найдены</p>';
-                return;
-            }
-            
-            let html = '';
-            
+
+            const content = document.getElementById('catalog-content');
+            const menu = document.getElementById('category-menu');
+
+            // Названия категорий
+            const categoryNames = {
+                vetosh: 'Ветошь',
+                gloves: 'Перчатки',
+                vafelka: 'Вафельное полотно',
+                marla: 'Марля',
+                rb: 'Разволокненное полотно'
+            };
+
+            // Группируем товары
+            const groupedProducts = {};
+
             products.forEach(product => {
-                // Формируем список цен (первые 4 позиции)
-                let pricesHtml = '';
-                const priceEntries = Object.entries(product.prices);
-                for (let i = 0; i < Math.min(priceEntries.length, 4); i++) {
-                    const [weight, price] = priceEntries[i];
-                    pricesHtml += `<li>от ${weight} — ${price} ₽</li>`;
+
+                if (!groupedProducts[product.category]) {
+                    groupedProducts[product.category] = [];
                 }
-                
-                // Базовая цена (минимальная)
-                const basePrice = Math.min(...Object.values(product.prices));
-                
-                html += `
-                    <div class="card-c" data-product-id="${product.id}">
-                        <a href="product.html?id=${product.id}" class="card-link">
-                            <img src="${product.image}" alt="${product.name}">
-                            <h3>${product.name}</h3>
-                            <p>размер ${product.size}<br>${product.material}</p>
-                            <ul class="prices">
-                                ${pricesHtml}
-                            </ul>
+
+                groupedProducts[product.category].push(product);
+
+            });
+
+            let contentHTML = '';
+            let menuHTML = '';
+
+            // Создаем секции
+            Object.entries(groupedProducts).forEach(([category, items]) => {
+
+                const categoryTitle = categoryNames[category] || category;
+
+                // меню слева
+                menuHTML += `
+                    <li>
+                        <a href="#${category}">
+                            ${categoryTitle}
                         </a>
-                        <button class="add-to-cart-btn" data-id="${product.id}" data-name="${product.name}" data-price="${basePrice}">
-                            В корзину
-                        </button>
-                        <div class="button-wrapper">
-                            <a href="price-list.html" class="price-button">прайс-лист</a>
+                    </li>
+                `;
+
+                // карточки
+                let cardsHTML = '';
+
+                items.forEach(product => {
+
+                    let pricesHtml = '';
+
+                    Object.entries(product.prices).forEach(([weight, price]) => {
+                        pricesHtml += `<li>от ${weight} — ${price} ₽</li>`;
+                    });
+
+                    const basePrice = Math.min(...Object.values(product.prices));
+
+                    cardsHTML += `
+                        <div class="card-c">
+
+                            <a href="product.html?id=${product.id}" class="card-link">
+
+                                <img src="${product.image}" alt="${product.name}">
+
+                                <h3>${product.name}</h3>
+
+                                <p>
+                                    размер ${product.size}<br>
+                                    ${product.material}
+                                </p>
+
+                                <ul class="prices">
+                                    ${pricesHtml}
+                                </ul>
+
+                            </a>
+
+                            <div class="card-actions">
+                                
+                                <a href="price-list.html" class="price-button">
+                                    Прайс-лист
+                                </a>
+
+                                <button class="add-to-cart-btn"
+                                    data-id="${product.id}"
+                                    data-name="${product.name}"
+                                    data-price="${basePrice}">
+                                    В корзину
+                                </button>
+
+                            </div>
+
                         </div>
-                        <div class="status ${product.inStock ? 'in-stock' : 'out-stock'}">
-                            ${product.inStock ? '✔ В наличии' : '✘ Нет в наличии'}
+                    `;
+                });
+
+                contentHTML += `
+                    <section class="catalog-section" id="${category}">
+
+                        <h2 class="section-title">
+                            ${categoryTitle}
+                        </h2>
+
+                        <div class="cards-grid">
+                            ${cardsHTML}
                         </div>
-                    </div>
+
+                    </section>
                 `;
             });
-            
-            grid.innerHTML = html;
+
+            content.innerHTML = contentHTML;
+            menu.innerHTML = menuHTML;
         }
         
         // Запускаем отображение каталога
