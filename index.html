@@ -17,7 +17,21 @@
         <div class="container">
             <div class="header-topline">
                 <span class="topline-delivery">Бесплатная доставка от 20000 рублей ᯓ➤</span>
-                <a href="tel:+79158155570" class="topline-phone">+7 (915)-815-55-70 (ежедневно с 8:00 - 20:00 по МСК)</a>
+                <div class="phone-block">
+
+                    <a href="tel:+79158155570" class="topline-phone">
+                        +7 (910)-686-88-40 (Пн-Пт: 8:00 - 17:00 по МСК)
+                    </a>
+
+                    <a href="https://t.me/" target="_blank">
+                        <img src="images/tg.png" class="messenger-icon">
+                    </a>
+
+                    <a href="https://max.ru/ВАШ_АККАУНТ" target="_blank">
+                        <img src="images/max.png" class="messenger-icon">
+                    </a>
+
+                </div>
             </div>
 
             <div class="header-main">
@@ -37,19 +51,7 @@
                 </div>
 
                 <div class="header-actions">
-                    <div class="accLike">
-                        <a href="#" class="action-icon user-link" aria-label="Войти">
-                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="11.2737" cy="7.79412" r="5.29412" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
-                                <path d="M18.6845 20.5006C18.6845 16.4072 15.3661 13.0889 11.2727 13.0889C7.17932 13.0889 3.86096 16.4072 3.86096 20.5006" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>  
-                        </a>
-                        <a href="#" class="action-icon cart-link" aria-label="Лайк">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
-                                <path d="M7 3C4.23858 3 2 5.21619 2 7.95C2 10.157 2.87466 15.3947 11.4875 20.6903C11.7994 20.8821 12.2006 20.8821 12.5125 20.6903C21.1253 15.3947 22 10.157 22 7.95C22 5.21619 19.7614 3 17 3C14.2386 3 12 6 12 6C12 6 9.76142 3 7 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </div>
+                    
                     <div class="cartt">
                         <a href="#" class="cart-btn-real"> 
                             <span class="cart-icon">
@@ -66,7 +68,9 @@
                         </a>
                     </div>
                     <div class="callback-box">
-                        <button class="header-btn">ЗАКАЗАТЬ ЗВОНОК</button>
+                        <button class="header-btn" id="callbackBtn">
+                            ЗАКАЗАТЬ ЗВОНОК
+                        </button>
                     </div>
                 </div>
             </div>
@@ -110,7 +114,7 @@
                     </div>
                 </section>
                 
-                <div class="advantages">
+                <div class="advantages" id="advantages">
                     <div class="advantages-wrapper">
                         <div class="advantages-grid">
                             <div class="adv-card adv-card-stat">
@@ -213,9 +217,15 @@
 
             <div class="footer-col">
                 <h3>Компания</h3>
-                <p>Наши преимущества</p>
-                <p>О нас</p>
-                <p>Каталог</p>
+                <p> 
+                    <a href="index.html#advantages">Наши преимущества</a>
+                </p>
+                <p> 
+                    <a href="index.html#about">О нас</a>
+                </p>
+                <p>
+                    <a href="catalog.html">Каталог</a>
+                </p>
             </div>
 
             <div class="footer-col">
@@ -232,25 +242,45 @@
                 <p>Политика конфиденциальности</p>
             </div>
 
+            <div class="footer-messengers">
+                <a href="https://t.me/" target="_blank">
+                    <img src="images/tg.png" >
+                </a>
+
+                <a href="https://max.ru/ВАШ_АККАУНТ" target="_blank">
+                    <img src="images/max.png">
+                </a>
+            </div>
+
         </div>
 
         <div class="footer-bottom">
-            © 2001-2026 Все права защищены
+            © 2026 Все права защищены
         </div>
     </footer>
+
     <div id="callModal" class="call-modal">
  
     <div id="contactModal" class="modal">
         <div class="modal-content">
             <span class="close"></span>
-            <h2 class="maintext">Контакты "ТексЭко"</h2>
+            <h2 class="maintext">Контакты "ОснаТекс"</h2>
 
             <div class="contact-info">
                 <h3 class="maintext2">Информация о нас</h3>
                 <p><strong>Адрес:</strong> г. Кинешма, ул. Вичугская, д. 13Г</p>
                 <p><strong>Телефон:</strong> +7 (915) 815-55-70</p>
                 <p><strong>Email:</strong> info@texeco.ru</p>
-                <p><strong>Режим работы:</strong> Пн-Пт: 8:00–20:00</p>
+                <p><strong>Режим работы:</strong> Пн-Пт: 8:00–20:00</p> 
+                <div class="mescon">
+                    <a href="https://t.me/ВАШ_ТЕЛЕГРАМ" target="_blank">
+                        <img src="images/tg.png" class="messenger-icon">
+                    </a>
+
+                    <a href="https://max.ru/ВАШ_АККАУНТ" target="_blank">
+                        <img src="images/max.png" class="messenger-icon">
+                    </a>
+                </div>
             </div>
 
             <form id="contactForm">
@@ -273,6 +303,70 @@
                 <button type="submit">Отправить обращение</button>
                 <input type="hidden" name="date" id="timeField">
             </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно заказать звонок -->
+    <div id="callbackModal" class="modal">
+        <div class="modal-content">
+
+            <span id="closeCallbackModal" class="close">×</span>
+
+            <h2 class="maintext">Заказать звонок</h2>
+
+            <form id="callbackForm">
+
+                <div class="form-group">
+                    <label for="callbackName">
+                        ФИО <span class="star">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="callbackName"
+                        name="name"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="callbackPhone">
+                        Телефон <span class="star">*</span>
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="callbackPhone"
+                        name="phone"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email <span class="star">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="callbackComment">
+                        Комментарий
+                    </label>
+
+                    <textarea
+                        id="callbackComment"
+                        name="message"
+                        rows="4"></textarea>
+                </div>
+
+                <input
+                    type="hidden"
+                    name="date"
+                    id="callbackTime">
+
+                <button type="submit">
+                    Заказать звонок
+                </button>
+
+            </form>
+
         </div>
     </div>
 
@@ -302,7 +396,6 @@
                         'template_amsvbdq',
                         this
                     ).then(function(response) {
-                        alert('Сообщение успешно отправлено!');
                         modal.style.display = 'none';
                         form.reset();
                     }, function(error) {
@@ -337,33 +430,74 @@
             
         });
 
+        const callbackBtn =
+            document.getElementById('callbackBtn');
+
+        const callbackModal =
+            document.getElementById('callbackModal');
+
+        const closeCallbackModal =
+            document.getElementById('closeCallbackModal');
+
+        callbackBtn.addEventListener('click', function(){
+
+            callbackModal.style.display = 'block';
+
+        });
+
+        closeCallbackModal.addEventListener('click', function(){
+
+            callbackModal.style.display = 'none';
+
+        });
+
+        window.addEventListener('click', function(e){
+
+            if(e.target === callbackModal){
+
+                callbackModal.style.display = 'none';
+
+            }
+
+        });
+
+        const callbackForm =
+            document.getElementById('callbackForm');
+
+        callbackForm.addEventListener('submit', function(event){
+
+            event.preventDefault();
+
+            document.getElementById('callbackTime').value =
+                new Date().toLocaleString('ru-RU');
+
+            emailjs.sendForm(
+                'service_grwiu66',
+                'template_amsvbdq',
+                this
+            )
+            .then(function(){
+
+
+                callbackModal.style.display = 'none';
+
+                callbackForm.reset();
+
+            })
+            .catch(function(error){
+
+                console.error(error);
+
+                alert('Ошибка отправки');
+
+            });
+
+        });
+
         
     </script>
 
-    <!-- Модальное окно входа -->
-    <div id="loginModal" class="login-modal">
-        <div class="login-modal-content">
-            <span class="login-close">&times;</span>
-            
-            <div id="loginForm" class="login-auth-form active">
-                <h3>Вход в аккаунт</h3>
-                <input type="email" id="loginEmail" placeholder="Email" class="login-auth-input">
-                <input type="password" id="loginPassword" placeholder="Пароль" class="login-auth-input">
-                <button id="doLogin" class="login-auth-btn">Войти</button>
-                <p class="login-auth-switch">Нет аккаунта? <a href="#" id="showSignup">Зарегистрироваться</a></p>
-            </div>
-            
-            <div id="signupForm" class="login-auth-form">
-                <h3>Регистрация</h3>
-                <input type="text" id="signupName" placeholder="Имя" class="login-auth-input">
-                <input type="email" id="signupEmail" placeholder="Email" class="login-auth-input">
-                <input type="password" id="signupPassword" placeholder="Пароль" class="login-auth-input">
-                <button id="doSignup" class="login-auth-btn">Зарегистрироваться</button>
-                <p class="login-auth-switch">Уже есть аккаунт? <a href="#" id="showLogin">Войти</a></p>
-            </div>
-        </div>
-    </div>
-
+    
     <script src="script.js"></script>
 
 

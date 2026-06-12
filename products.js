@@ -7,13 +7,15 @@ const products = [
         image: "images/Vetosh1.jpg", 
         size: "40×60 см",
         material: "100% хб",
+        unit: "kg",
         prices: {
+            "0 кг": 85,
             "100 кг": 83,
             "500 кг": 82,
-            "1000 кг": 79,
-            "3000 кг": 75
+            "1000 кг": 79
+            
         },
-        inStock: true,
+        inStock: false,
         description: "Качественная ветошь из цветного трикотажа. Идеально подходит для уборки помещений и протирки оборудования."
     },
     {
@@ -23,11 +25,12 @@ const products = [
         image: "images/Vetosh2.jpg",
         size: "40×60 см",
         material: "100% хб",
+        unit: "kg",
         prices: {
+            "0 кг": 85,
             "100 кг": 83,
             "500 кг": 82,
-            "1000 кг": 79,
-            "3000 кг": 75
+            "1000 кг": 79
         },
         inStock: true,
         description: "Светлая ветошь из трикотажа. Не линяет, отлично впитывает влагу."
@@ -39,11 +42,12 @@ const products = [
         image: "images/Vetosh6.jpg",
         size: "40×60 см",
         material: "100% хб",
+        unit: "kg",
         prices: {
-            "100 кг": 109,
-            "500 кг": 102,
-            "1000 кг": 99,
-            "3000 кг": 95
+            "0 кг": 109,
+            "100 кг": 102,
+            "500 кг": 100,
+            "1000 кг": 92
         },
         inStock: true,
         description: "Мягкая махровая ветошь. Отлично подходит для полировки и деликатных поверхностей."
@@ -55,11 +59,12 @@ const products = [
         image: "images/Vetosh5.jpg",
         size: "40×60 см",
         material: "100% хб",
+        unit: "kg",
         prices: {
-            "100 кг": 109,
-            "500 кг": 102,
-            "1000 кг": 99,
-            "3000 кг": 95
+            "0 кг": 109,
+            "100 кг": 102,
+            "500 кг": 100,
+            "1000 кг": 92
         },
         inStock: true,
         description: "Фланелевая ветошь для тщательной уборки. Мягкая и впитывающая."
@@ -71,11 +76,12 @@ const products = [
         image: "images/Vetosh3.jpg",
         size: "40×60 см",
         material: "100% хб",
+        unit: "kg",
         prices: {
+            "0 кг": 85,
             "100 кг": 83,
             "500 кг": 82,
-            "1000 кг": 79,
-            "3000 кг": 75
+            "1000 кг": 79
         },
         inStock: true,
         description: "Ветошь из цветных простыней. Прочная и износостойкая."
@@ -87,11 +93,12 @@ const products = [
         image: "images/Vetosh4.jpg",
         size: "40×60 см",
         material: "100% хб",
+        unit: "kg",
         prices: {
-            "100 кг": 109,
-            "500 кг": 102,
-            "1000 кг": 99,
-            "3000 кг": 95
+            "0 кг": 85,
+            "100 кг": 83,
+            "500 кг": 82,
+            "1000 кг": 79
         },
         inStock: true,
         description: "Светлая ветошь из простыней. Высокое качество и чистота."
@@ -104,7 +111,9 @@ const products = [
         image: "images/gloves.jpg",
         size: "???",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 109,
             "1000 шт": 102,
             
@@ -119,7 +128,9 @@ const products = [
         image: "images/gloves.jpg",
         size: "???",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 109,
             "1000 шт": 102,
             
@@ -134,7 +145,9 @@ const products = [
         image: "images/gloves.jpg",
         size: "???",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 109,
             "1000 шт": 102,
             
@@ -149,7 +162,9 @@ const products = [
         image: "images/gloves.jpg",
         size: "???",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 109,
             "1000 шт": 102,
             
@@ -164,7 +179,9 @@ const products = [
         image: "images/gloves.jpg",
         size: "???",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 109,
             "1000 шт": 102,
             
@@ -179,7 +196,9 @@ const products = [
         image: "images/vafelka.jpg",
         size: "40см×20м",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 165,
             "100 шт": 150,
             "1000 шт": 123,
             
@@ -194,7 +213,9 @@ const products = [
         image: "images/vafelka.jpg",
         size: "40см×20м",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 165,
             "100 шт": 150,
             "1000 шт": 123,
             
@@ -209,7 +230,9 @@ const products = [
         image: "images/vafelka.jpg",
         size: "40см×20м",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 165,
             "100 шт": 150,
             "1000 шт": 123,
             
@@ -224,7 +247,9 @@ const products = [
         image: "images/vafelka.jpg",
         size: "40см×20м",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 165,
             "100 шт": 150,
             "1000 шт": 123,
             
@@ -239,7 +264,9 @@ const products = [
         image: "images/vafelka.jpg",
         size: "40см×20м",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 165,
             "100 шт": 150,
             "1000 шт": 123,
             
@@ -254,7 +281,9 @@ const products = [
         image: "images/marla.jpg",
         size: "40×60",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 106,
             "1000 шт": 99,
             
@@ -269,7 +298,9 @@ const products = [
         image: "images/marla.jpg",
         size: "40×60",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 106,
             "1000 шт": 99,
             
@@ -284,7 +315,9 @@ const products = [
         image: "images/marla.jpg",
         size: "40×60",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 106,
             "1000 шт": 99,
             
@@ -299,7 +332,9 @@ const products = [
         image: "images/marla.jpg",
         size: "40×60",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 106,
             "1000 шт": 99,
             
@@ -314,7 +349,9 @@ const products = [
         image: "images/marla.jpg",
         size: "40×60",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 106,
             "1000 шт": 99,
             
@@ -329,7 +366,9 @@ const products = [
         image: "images/rb.jpg",
         size: "40×60",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 106,
             "1000 шт": 99,
             
@@ -344,7 +383,9 @@ const products = [
         image: "images/rb.jpg",
         size: "40×60",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 106,
             "1000 шт": 99,
             
@@ -359,7 +400,9 @@ const products = [
         image: "images/rb.jpg",
         size: "40×60",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 106,
             "1000 шт": 99,
             
@@ -374,7 +417,9 @@ const products = [
         image: "images/rb.jpg",
         size: "40×60",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 106,
             "1000 шт": 99,
             
@@ -389,7 +434,9 @@ const products = [
         image: "images/rb.jpg",
         size: "40×60",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 106,
             "1000 шт": 99,
             
@@ -404,7 +451,9 @@ const products = [
         image: "images/rb.jpg",
         size: "40×60",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 106,
             "1000 шт": 99,
             
@@ -419,7 +468,9 @@ const products = [
         image: "images/rb.jpg",
         size: "40×60",
         material: "100% хб",
+        unit: "pcs",
         prices: {
+            "0 шт": 115,
             "100 шт": 106,
             "1000 шт": 99,
             
