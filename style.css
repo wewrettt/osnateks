@@ -1451,7 +1451,7 @@ button[type="submit"]:hover {
     background: #777;
     color: #fff;
     cursor: not-allowed;
-    opacity: 0.7;
+    opacity: 0.71;
     pointer-events: none;
     border: none;
 }
