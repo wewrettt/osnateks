@@ -39,6 +39,20 @@
                     <img src="logo.jpg" alt="ПКФ Оснатекс логотип" class="logo-img">
                 </a>
 
+                <button class="burger" id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <div class="mobile-callback">
+
+                    <button class="mobile-calback">
+
+                        Заказать звонок
+
+                    </button>
+
+                </button>
+
                 <div class="header-center">
                     <nav class="header-nav">
                         <ul>
@@ -504,7 +518,43 @@
 
         });
 
-        
+        const burger = document.getElementById('burger');
+        const menu = document.querySelector('.header-center');
+
+        burger.addEventListener('click', () => {
+
+            menu.classList.toggle('active');
+            burger.classList.toggle('active');
+
+        });
+
+        document.querySelectorAll('.header-nav a').forEach(link=>{
+
+            link.addEventListener('click',()=>{
+
+                menu.classList.remove('active');
+
+            });
+
+        });
+
+        document.addEventListener('click',function(e){
+
+            if(
+
+                !menu.contains(e.target)
+
+                &&
+
+                !burger.contains(e.target)
+
+            ){
+
+                menu.classList.remove('active');
+
+            }
+
+        });
     </script>
 
     
