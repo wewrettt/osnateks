@@ -120,26 +120,7 @@ body {
     padding: 12px 0;
 }
 
-.burger{
-    display:none;
-    width:42px;
-    height:42px;
 
-    background:none;
-    border:none;
-    cursor:pointer;
-
-    flex-direction:column;
-    justify-content:center;
-    gap:6px;
-}
-
-.burger span{
-    width:100%;
-    height:3px;
-    background:#333;
-    border-radius:5px;
-}
 
 
 .logo-link {
@@ -728,7 +709,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr) auto;
     gap: 20px;
-    align-items: end;
+    align-items: start;
 
     backdrop-filter: blur(12px);
     border-radius: 20px;
@@ -1456,147 +1437,3 @@ button[type="submit"]:hover {
     border: none;
 }
 
-@media (max-width:500px){
-
-.burger{
-    display:flex;
-    order:3;
-}
-.burger span{
-
-    transition:.3s;
-
-}
-
-.burger.active span:nth-child(1){
-
-    transform:rotate(45deg) translate(7px,7px);
-
-}
-
-.burger.active span:nth-child(2){
-
-    opacity:0;
-
-}
-
-.burger.active span:nth-child(3){
-
-    transform:rotate(-45deg) translate(6px,-6px);
-
-}
-.callback-box{
-
-    display:none;
-}
-.header-center{
-
-    position:absolute;
-
-    top:100%;
-
-    left:0;
-
-    width:100%;
-
-    background:#fff;
-
-    display:none;
-
-    padding:30px;
-
-    box-shadow:0 15px 30px rgba(0,0,0,.15);
-
-    z-index:1000;
-    opacity:0;
-
-    visibility:hidden;
-
-    transform:translateY(-20px);
-
-    transition:.3s;
-
-}
-
-.header-center.active{
-
-    display:block;
-    opacity:1;
-
-    visibility:visible;
-
-    transform:translateY(0);
-
-}
-
-.header-nav ul{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:25px;
-
-    align-items:flex-start;
-
-}
-
-.header-nav a{
-
-    font-size:20px;
-
-}
-
-
-
-.header-actions{
-
-    margin-left:auto;
-}
-
-.header-main{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-}
-
-.header-topline{
-
-    display:none;
-
-}
-.logo-img{
-
-    max-height:60px;
-
-}
-
-.logo-link{
-
-    margin-top:0;
-
-}
-.mobile-callback{
-
-    margin-top:30px;
-    width: 100%;
-
-}
-.cart-text{
-
-    display:none;
-
-}
-
-.cart-btn-real{
-
-    padding:8px;
-
-}
-}
